@@ -1,4 +1,4 @@
-package cci.chapter1.stringuniqueness;
+package cci.chapter1.permutation;
 
 import cci.chapter1.stringuniqueness.IUniqueness;
 import cci.chapter1.stringuniqueness.WithSupportedDataStructure;
@@ -8,31 +8,28 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class WithoutSupprtedDataStructureTestSuites {
-    @ParameterizedTest
-    @ValueSource(strings = {"a", "ab", "123", "abc123", "!@#"})
-    public void hasUniqueCharacters(String value){
-        IUniqueness checker = new WithoutSupportedDataStructure();
+public class PermutationTest {
+    @Test
+    public void valueIsAPermutationOf(){
+        Permutation permutation = new Permutation();
 
-        Assertions.assertTrue(checker.hasUniqueCharacters(value));
+        Assertions.assertTrue(permutation.check("qwerty", "trewyq"));
     }
 
+    @Test
+    public void valueIsNotAPermutationOf(){
+        Permutation permutation = new Permutation();
 
-    @ParameterizedTest
-    @ValueSource(strings = {"aa", "abb", "123123",})
-    public void hasNoniqueCharacters(String value){
-        IUniqueness checker = new WithoutSupportedDataStructure();
-
-        Assertions.assertFalse(checker.hasUniqueCharacters(value));
+        Assertions.assertFalse(permutation.check("abc", "ghl"));
     }
 
     @Test
     public void hasEmptyString(){
-        IUniqueness checker = new WithoutSupportedDataStructure();
+        Permutation permutation = new Permutation();
         final String empty = "";
         IllegalArgumentException exception = Assertions.assertThrows(
                 IllegalArgumentException.class, () -> {
-                    checker.hasUniqueCharacters(empty);
+                    permutation.check(empty, empty);
                 }
         );
 
@@ -41,11 +38,11 @@ public class WithoutSupprtedDataStructureTestSuites {
 
     @Test
     public void hasNullableString(){
-        IUniqueness checker = new WithSupportedDataStructure();
+        Permutation permutation = new Permutation();
         final String nullable = null;
         IllegalArgumentException exception = Assertions.assertThrows(
                 IllegalArgumentException.class, () -> {
-                    checker.hasUniqueCharacters(nullable);
+                    permutation.check(nullable, nullable);
                 }
         );
 
