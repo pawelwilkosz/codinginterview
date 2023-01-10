@@ -1,37 +1,32 @@
-package cci.chapter1;
+package cci.chapter1.stringuniqueness;
 
-import org.junit.jupiter.api.Assertions;
+import cci.chapter1.stringuniqueness.IUniqueness;
+import cci.chapter1.stringuniqueness.WithSupportedDataStructure;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+    import org.junit.jupiter.api.Assertions;
 
-public class WithoutSupprtedDataStructureTestSuites {
+public class WithSupportedDataStructureTestSuites {
     @ParameterizedTest
     @ValueSource(strings = {"a", "ab", "123", "abc123", "!@#"})
     public void hasUniqueCharacters(String value){
-        IUniqueness checker = new WithoutSupportedDataStructure();
+        IUniqueness checker = new WithSupportedDataStructure();
 
         Assertions.assertTrue(checker.hasUniqueCharacters(value));
-    }
-
-    @Test
-    public void toDebug(){
-        String s = "ab";
-        IUniqueness checker = new WithoutSupportedDataStructure();
-        Assertions.assertTrue(checker.hasUniqueCharacters(s));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"aa", "abb", "123123",})
     public void hasNoniqueCharacters(String value){
-        IUniqueness checker = new WithoutSupportedDataStructure();
+        IUniqueness checker = new WithSupportedDataStructure();
 
         Assertions.assertFalse(checker.hasUniqueCharacters(value));
     }
 
     @Test
     public void hasEmptyString(){
-        IUniqueness checker = new WithoutSupportedDataStructure();
+        IUniqueness checker = new WithSupportedDataStructure();
         final String empty = "";
         IllegalArgumentException exception = Assertions.assertThrows(
                 IllegalArgumentException.class, () -> {

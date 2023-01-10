@@ -1,4 +1,4 @@
-package cci.chapter1;
+package cci.chapter1.stringuniqueness;
 
 public class ConsoleDebug {
     public static void Main(String[] argc){
