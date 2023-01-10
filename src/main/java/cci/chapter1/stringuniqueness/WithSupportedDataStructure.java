@@ -1,10 +1,11 @@
-package cci.chapter1;
+package cci.chapter1.stringuniqueness;
 
+import cci.chapter1.stringuniqueness.IUniqueness;
 import cci.utils.Contract;
 
 import java.util.Hashtable;
 
-public class WithSupportedDataStructure implements IUniqueness{
+public class WithSupportedDataStructure implements IUniqueness {
     @Override
     public boolean hasUniqueCharacters(String toCheck) {
         Contract.stringIsNotNullOrEmpty(toCheck);

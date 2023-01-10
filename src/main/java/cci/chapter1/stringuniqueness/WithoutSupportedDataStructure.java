@@ -1,8 +1,9 @@
-package cci.chapter1;
+package cci.chapter1.stringuniqueness;
 
+import cci.chapter1.stringuniqueness.IUniqueness;
 import cci.utils.Contract;
 
-public class WithoutSupportedDataStructure implements IUniqueness{
+public class WithoutSupportedDataStructure implements IUniqueness {
 
     @Override
     public boolean hasUniqueCharacters(String toCheck) throws IllegalArgumentException {
