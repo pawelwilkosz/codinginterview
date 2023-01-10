@@ -6,7 +6,11 @@ public class Permutation {
     public boolean check(String toCheck, String toCompare){
         Contract.stringIsNotNullOrEmpty(toCheck);
         Contract.stringIsNotNullOrEmpty(toCompare);
-        
+
+        if(toCheck.length() != toCompare.length()){
+            return false;
+        }
+
         toCheck = toCheck
                 .chars()
                 .sorted()

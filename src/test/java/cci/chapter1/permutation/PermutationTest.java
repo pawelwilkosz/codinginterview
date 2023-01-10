@@ -48,4 +48,11 @@ public class PermutationTest {
 
         Assertions.assertEquals("String cannot be null or empty", exception.getMessage());
     }
+
+    @Test
+    public void hasADifferentLength(){
+        Permutation permutation = new Permutation();
+
+        Assertions.assertFalse(permutation.check("abc", "abcd"));
+    }
 }
