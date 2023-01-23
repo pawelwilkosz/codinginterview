@@ -9,14 +9,14 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class StringOperatorTest {
     @ParameterizedTest
-    @CsvSource({ "pale, ple", "pales, pale", "pale, bale" })
+    @CsvSource({ "pale, ple", "pales, pale", "pale, bale", "a, a" })
     public void positiveOperation(String first, String second){
         StringOperator stringOperator = new StringOperator();
         Assertions.assertTrue(stringOperator.isValidEdit(first, second));
     }
 
     @ParameterizedTest
-    @CsvSource({ "pale, bake", "pales, ssss" })
+    @CsvSource({ "pale, bake", "pales, ssss"})
     public void negativeOperation(String first, String second){
         StringOperator stringOperator = new StringOperator();
         Assertions.assertFalse(stringOperator.isValidEdit(first, second));
